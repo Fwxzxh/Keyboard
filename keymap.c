@@ -2,6 +2,8 @@
 
 #include <stdio.h>
 
+// qmk flash -kb sofle/rev1 -km fwxzxh
+
 char wpm_str[8];
 
 enum sofle_layers {
