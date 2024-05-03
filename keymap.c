@@ -9,7 +9,6 @@ char wpm_str[8];
 enum sofle_layers {
     /* _M_XYZ = Mac Os, _W_XYZ = Win/Linux */
     _QWERTY,
-    _COLEMAK,
     _LOWER,
     _RAISE,
     _ADJUST,
@@ -18,7 +17,6 @@ enum sofle_layers {
 
 enum custom_keycodes {
     KC_QWERTY = SAFE_RANGE,
-    KC_COLEMAK,
     KC_PRVWD,
     KC_NXTWD,
     KC_LSTRT,
@@ -143,7 +141,7 @@ _______,KC_UNDO, KC_CUT, KC_COPY, KC_PASTE, XXXXXXX,  _______,            ______
 * ,-----------------------------------------.                    ,-----------------------------------------.
 * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
 * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
-* |QK_BOOT|     |QWERTY|COLEMAK|      |      |                    |      |      |      |      |      |      |
+* |QK_BOOT|     |QWERTY|      |      |      |                    |      |      |      |      |      |      |
 * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
 * | CAPS |      |MACWIN|      |      |      |-------.    ,-------|      | VOLDO| MUTE | VOLUP|      |      |
 * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
@@ -156,7 +154,7 @@ _______,KC_UNDO, KC_CUT, KC_COPY, KC_PASTE, XXXXXXX,  _______,            ______
 
 [_ADJUST] = LAYOUT(
 XXXXXXX, XXXXXXX,  XXXXXXX ,    XXXXXXX, XXXXXXX, XXXXXXX,                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_SYSTEM_SLEEP,
-QK_BOOT, XXXXXXX, KC_QWERTY, KC_COLEMAK, CG_TOGG, XXXXXXX,                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_SYSTEM_POWER,
+QK_BOOT, XXXXXXX, KC_QWERTY, XXXXXXX, CG_TOGG, XXXXXXX,                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_SYSTEM_POWER,
 KC_CAPS, XXXXXXX,   CG_TOGG,    XXXXXXX, XXXXXXX, XXXXXXX,                       XXXXXXX, KC_VOLD, KC_MUTE, KC_VOLU, XXXXXXX, XXXXXXX,
 XXXXXXX, XXXXXXX,   XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, KC_MPRV, KC_MPLY, KC_MNXT, XXXXXXX, XXXXXXX,
                  _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______
@@ -190,9 +188,6 @@ static void print_status_narrow(void) {
     switch (get_highest_layer(default_layer_state)) {
         case _QWERTY:
             oled_write_ln_P(PSTR("Qwrt"), false);
-            break;
-        case _COLEMAK:
-            oled_write_ln_P(PSTR("Clmk"), false);
             break;
         default:
             oled_write_P(PSTR("Undef"), false);
@@ -254,11 +249,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case KC_QWERTY:
             if (record->event.pressed) {
                 set_single_persistent_default_layer(_QWERTY);
-            }
-            return false;
-        case KC_COLEMAK:
-            if (record->event.pressed) {
-                set_single_persistent_default_layer(_COLEMAK);
             }
             return false;
         case KC_PRVWD:
