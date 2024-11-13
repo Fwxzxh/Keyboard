@@ -7,8 +7,9 @@ for more options.
 
 // Configure the global tapping term (default: 200ms)
 #undef TAPPING_TERM
-#define TAPPING_TERM 260
+#define TAPPING_TERM 300
 
 // Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
 #define QUICK_TAP_TERM 160 // key repetition in seconds
 #define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
+// #define HOLD_ON_OTHER_KEY_PRESS
