@@ -9,6 +9,7 @@ for more options.
 #undef TAPPING_TERM
 #define TAPPING_TERM 300
 
+#define PERMISSIVE_HOLD
 // Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
 #define QUICK_TAP_TERM 160 // key repetition in seconds
 #define BOTH_SHIFTS_TURNS_ON_CAPS_WORD

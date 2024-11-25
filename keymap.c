@@ -3,6 +3,7 @@
 #include <stdio.h>
 
 // qmk flash -kb sofle/rev1 -km fwxzxh
+// qmk c2json -kb sofle/rev1 -km fwxzxh --no-cpp
 
 char wpm_str[8];
 
@@ -64,7 +65,7 @@ KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, KC_MUTE,     XXXXXXX,KC_N,   
 ),
 
 /*
-* QWERTY Gaming Layout Gaming
+* Gaming Layout Gaming
 * ,-----------------------------------------.                    ,-----------------------------------------.
 * |  `   |   1  |   2  |   3  |   4  |   5  |                    |   6  |   7  |   8  |   9  |   0  |Adjust|
 * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
